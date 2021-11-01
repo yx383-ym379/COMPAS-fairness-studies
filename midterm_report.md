@@ -10,7 +10,7 @@ Quantify the inherent bias in the COMPAS algorithm
 Optimize the model by pre-process feature mapping and post-process raw output calibration 
 
 ## Feature Selection
-To discuss the notion of fairness, we first introduce the idea of protected features and visible features. By protected features, we are referring to the features that we expect our ML models not to depend on when making predictions. We refer to the remaining features as visible features, as they are visible to the predictive models. Mathematically speaking, given any protected feature $d\in D$ and visible features <img src="https://render.githubusercontent.com/render/math?math=x\in X">, we expect <img src="https://render.githubusercontent.com/render/math?math=Pr(prediction|d, x)=Pr(prediction|x)">. When the equation doesn’t hold true, we say the predictive model is biased and discriminatory. [[1]](https://alexeyignatiev.github.io/assets/pdf/icshms-cp20-preprint.pdf) 
+To discuss the notion of fairness, we first introduce the idea of protected features and visible features. By protected features, we are referring to the features that we expect our ML models not to depend on when making predictions. We refer to the remaining features as visible features, as they are visible to the predictive models. Mathematically speaking, given any protected feature <img src="https://render.githubusercontent.com/render/math?math=d\in D"> and visible features <img src="https://render.githubusercontent.com/render/math?math=x\in X">, we expect <img src="https://render.githubusercontent.com/render/math?math=Pr(prediction|d, x)=Pr(prediction|x)">. When the equation doesn’t hold true, we say the predictive model is biased and discriminatory. [[1]](https://alexeyignatiev.github.io/assets/pdf/icshms-cp20-preprint.pdf) 
 
 ### Protected Features Selection
 We select protected features based on the US federal laws regarding discrimination. 
@@ -73,7 +73,7 @@ General speaking, for individuals from any two groups in the protected feature, 
 <img src="https://render.githubusercontent.com/render/math?math=J(Pr(\hat{y}\in Y|d_1\in D),\enspace Pr(\hat{y}\in Y|d_2\in D))">
 </p>
 
-A fair model would have <img src="https://render.githubusercontent.com/render/math?math=J(\cdot)\leq \epsilon">, where $\epsilon$ represents a small value. 
+A fair model would have <img src="https://render.githubusercontent.com/render/math?math=J(\cdot)\leq \epsilon">, where <img src="https://render.githubusercontent.com/render/math?math=\epsilon"> represents a small value. 
 
 Note, since we have access to the ground truth label, we introduce a small tweak in the above formula to gain a better idea of the discrimination trend:
 
@@ -97,7 +97,7 @@ We use the idea of Disparate Impact to quantify the COMPAS scoring bias: Dispara
 <img src="https://render.githubusercontent.com/render/math?math=J(p,\enspace q)=|\frac{p}{q}-1|">
 </p>
 
-for probabilities $p$ and $q$. When we take <img src="https://render.githubusercontent.com/render/math?math=\epsilon=0.2">, <img src="https://render.githubusercontent.com/render/math?math=J(\cdot)\leq\epsilon"> represents the 80% rule. 
+for probabilities <img src="https://render.githubusercontent.com/render/math?math=p"> and <img src="https://render.githubusercontent.com/render/math?math=q">. When we take <img src="https://render.githubusercontent.com/render/math?math=\epsilon=0.2">, <img src="https://render.githubusercontent.com/render/math?math=J(\cdot)\leq\epsilon"> represents the 80% rule. 
 
 Another group fairness measure we're interested in is Demographic Parity: a measurement very similar to the disparate impact calculation except we care more about the distance between probabilities than the ratio. This is accomplished by setting
 
@@ -127,7 +127,7 @@ The goal of the preprocessing step is to find the best randomized mapping from t
 <img src="https://render.githubusercontent.com/render/math?math=f(Pr(X,Y),Pr(X',Y'))">
 </p>
 
-where $f$ is a dissimilarity measuring function, e.g. KL-divergence.
+where <img src="https://render.githubusercontent.com/render/math?math=f"> is a dissimilarity measuring function, e.g. KL-divergence.
 
 **Individual Distortion**: Similar to the idea of minimizing utility loss, we also want to ensure that individual data points are not significantly different after the preprocessing step. To minimize the distortion in individual samples, we minimize the expected difference between data samples before and after the preprocessing step. Mathematically, this can be expressed as the expected distance between each individual data point before and after preprocessing:
 
@@ -136,7 +136,7 @@ where $f$ is a dissimilarity measuring function, e.g. KL-divergence.
 <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}[\delta((x,y),(x',y'))],\enspace\forall (d,x,y)\in D\times X\times Y">
 </p>
 
-where $\delta(\cdot,\cdot)$ is a distance function. 
+where <img src="https://render.githubusercontent.com/render/math?math=\delta(\cdot)"> is a distance function. 
 
 [Optimized Pre-Processing for Discrimination Prevention](https://papers.nips.cc/paper/2017/file/9a49a25d845a483fae4be7e341368e36-Paper.pdf) states that the optimal mapping can be found through solving the convex optimization problem below:
 
