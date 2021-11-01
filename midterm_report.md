@@ -10,7 +10,7 @@ Quantify the inherent bias in the COMPAS algorithm
 Optimize the model by pre-process feature mapping and post-process raw output calibration 
 
 ## Feature Selection
-To discuss the notion of fairness, we first introduce the idea of protected features and visible features. By protected features, we are referring to the features that we expect our ML models not to depend on when making predictions. We refer to the remaining features as visible features, as they are visible to the predictive models. Mathematically speaking, given any protected feature $d\in D$ and visible features $x\in X$, we expect $Pr(prediction|d, x)=Pr(prediction|x)$. When the equation doesn’t hold true, we say the predictive model is biased and discriminatory. [[1]](https://alexeyignatiev.github.io/assets/pdf/icshms-cp20-preprint.pdf) 
+To discuss the notion of fairness, we first introduce the idea of protected features and visible features. By protected features, we are referring to the features that we expect our ML models not to depend on when making predictions. We refer to the remaining features as visible features, as they are visible to the predictive models. Mathematically speaking, given any protected feature $d\in D$ and visible features $x\in X$, we expect <img src="https://render.githubusercontent.com/render/math?math=Pr(prediction|d, x)=Pr(prediction|x)">. When the equation doesn’t hold true, we say the predictive model is biased and discriminatory. [[1]](https://alexeyignatiev.github.io/assets/pdf/icshms-cp20-preprint.pdf) 
 
 ### Protected Features Selection
 We select protected features based on the US federal laws regarding discrimination. 
