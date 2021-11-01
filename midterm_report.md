@@ -111,7 +111,7 @@ where $f$ is a dissimilarity measuring function, e.g. KL-divergence.
 
 **Individual Distortion**: Similar to the idea of minimizing utility loss, we also want to ensure that individual data points are not significantly different after the preprocessing step. To minimize the distortion in individual samples, we minimize the expected difference between data samples before and after the preprocessing step. Mathematically, this can be expressed as the expected distance between each individual data point before and after preprocessing:
 
-$$\mathbb{E}[\delta((x,y),(x',y'))],\enspace\forall (d,x,y)\in D\times X\times Y$$
+```\mathbb{E}[\delta((x,y),(x',y'))],\enspace\forall (d,x,y)\in D\times X\times Y```
 
 where $\delta(\cdot,\cdot)$ is a distance function. 
 
