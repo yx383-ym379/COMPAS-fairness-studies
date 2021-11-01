@@ -7,7 +7,15 @@ A common assumption made when we train ML models is that the data sample we coll
 Thus, we are interested in improving algorithmic fairness in COMPAS by:
 Performed Feature Selections for Protected and Visible features
 Quantify the inherent bias in the COMPAS algorithm 
-Optimize the model by pre-process feature mapping and post-process raw output calibration 
+Optimize the model by pre-process feature mapping and post-process raw output calibration.
+
+Since our techniques are indendent of the ML model, the two steps can be generalized to any choice of ML models that take numerical inputs and predicts risk as a probability score.
+
+## Data selection
+In our project, we will be exploring and evaluating our proposed de-biasing techniques on the famous COMPAS recidivism dataset. 
+
+We believe COMPAS dataset is thorough and relevant, because Florida has strong open-records law and it’s easier to have access to the criminal records in Florida. Moreover, even though each states in the U.S has unique classifications of charge degrees, which gives rise to the concern that the effectiveness of our efforts can’t be generalized towards states other than Florida. COMPAS algorithm is in fact widely adopted throughout the United States, which proves that COMPAS dataset can serve as an accurate representation of the reality in the US criminal justice system. 
+
 
 ## Feature Selection
 To discuss the notion of fairness, we first introduce the idea of protected features and visible features. By protected features, we are referring to the features that we expect our ML models not to depend on when making predictions. We refer to the remaining features as visible features, as they are visible to the predictive models. Mathematically speaking, given any protected feature <img src="https://render.githubusercontent.com/render/math?math=d\in D"> and visible features <img src="https://render.githubusercontent.com/render/math?math=x\in X">, we expect <img src="https://render.githubusercontent.com/render/math?math=Pr(prediction|d, x)=Pr(prediction|x)">. When the equation doesn’t hold true, we say the predictive model is biased and discriminatory. [[1]](https://alexeyignatiev.github.io/assets/pdf/icshms-cp20-preprint.pdf) 
@@ -34,7 +42,7 @@ Excluding the protected features from the dataset, we selected a subset of avail
 Since recidivism prediction algorithms like COMPAS are commercial softwares with limited access, we use the selected visible features to train a simple supervised ML model as a representation of the risk assessment models. In addition, since our de-bias technique is model-agnostic, it is more intuitive to evaluate its performance indirectly by embedding it into a prediction task. 
 
 <p align="center">
-<img src="./img/roc.png" width="70%"/>
+<img src="./img/roc.png" width="60%"/>
 </p>
 
 The ROC curve above shows that a <img src="https://render.githubusercontent.com/render/math?math=l_1">-regularized Logistic regression model can serve as a reasonable baseline risk assessment model in place of the original COMPAS model in our project. To evaluate the effectiveness of our de-bias technique, we will compare the difference between the performance of the risk assessment model with and without applying our de-bias technique. We will discuss the metrics for quantifying model performance in the "metric" section later. 
