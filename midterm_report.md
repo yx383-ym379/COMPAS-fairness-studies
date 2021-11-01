@@ -49,7 +49,7 @@ However, in the rest of the project, we simplify the target to match with the gr
 
 ## Uncover the discrimination and bias that exists in the COMPAS Score
 
-<img src="./img/rec_race.png" width="250"/><img src="./img/nrec_race.png" width="275"/>
+<img src="./img/rec_race.png" width="300"/><img src="./img/nrec_race.png" width="325"/>
 
 Without the loss of generality, we chose `Race` as the protected feature to visualize the bias in the COMPAS dataset. We validated the existence of racism in the COMPAS dataset by plotting the above empirical probability distributions of different race groups. For inmates who actually recidivated, Caucasians had a nearly 20% more chance of receiving a low COMPAS score than African Americans and  30% less chance of receiving a high COMPAS score. For inmates who didn’t commit crimes within the window of two years, African Americans have a 20% less chance to receive a low COMPAS score than other races. This illustrates the fact that COMPAS scores are biased towards overestimating the recidivism tendency of African Americans and underestimating the recidivism tendency of other races.
 
@@ -57,7 +57,7 @@ Similar to the discrimination spotted in race, we uncovered discrimination in `S
 
 For comparison, below is the empirical probability of being predicted as risky (will recidivate) or not risky (will not recidivate) by the logistic regression model for different racial groups. We can see that the logistic regression model displays similar levels of discimination as COMPAS. 
 
-<img src="./img/lr_rec_race.png" width="270"/><img src="./img/lr_nrec_race.png" width="270"/>
+<img src="./img/lr_rec_race.png" width="300"/><img src="./img/lr_nrec_race.png" width="300"/>
 
 ## Metrics for measuring the fairness and discrimination in the model 
 
@@ -160,6 +160,6 @@ Essentially this step can be viewed as calibrating the risk assessment model out
 
 # Appendix
 ## discrimination with respect to other protected features visualized
-<img src="./img/rec_age.png" width="250"/><img src="./img/nrec_age.png" width="275"/>
+<img src="./img/rec_age.png" width="300"/><img src="./img/nrec_age.png" width="325"/>
 
-<img src="./img/rec_sex.png" width="250"/><img src="./img/nrec_sex.png" width="275"/>
+<img src="./img/rec_sex.png" width="300"/><img src="./img/nrec_sex.png" width="325"/>
