@@ -34,7 +34,7 @@ Excluding the protected features from the dataset, we selected a subset of avail
 Since recidivism prediction algorithms like COMPAS are commercial softwares with limited access, we use the selected visible features to train a simple supervised ML model as a representation of the risk assessment models. In addition, since our de-bias technique is model-agnostic, it is more intuitive to evaluate its performance indirectly by embedding it into a prediction task. 
 
 <p align="center">
-<img src="./img/roc.png" width="400"/>
+<img src="./img/roc.png" width="70%"/>
 </p>
 
 The ROC curve above shows that a <img src="https://render.githubusercontent.com/render/math?math=l_1">-regularized Logistic regression model can serve as a reasonable baseline risk assessment model in place of the original COMPAS model in our project. To evaluate the effectiveness of our de-bias technique, we will compare the difference between the performance of the risk assessment model with and without applying our de-bias technique. We will discuss the metrics for quantifying model performance in the "metric" section later. 
@@ -48,8 +48,9 @@ In COMPAS system, two types of risk ratings are presented to the human judges at
 However, in the rest of the project, we simplify the target to match with the ground truth labels, i.e. whether the inmate is predicted "will recidivate" and whether the inmate actually went on to recidivate after being released. This is also the case in our Logistic regression model. 
 
 ## Uncover the discrimination and bias that exists in the COMPAS Score
-
-<img src="./img/rec_race.png" width="300"/><img src="./img/nrec_race.png" width="325"/>
+<p align="center">
+<img src="./img/rec_race.png" width="45%"/><img src="./img/nrec_race.png" width="50%"/>
+</p>
 
 Without the loss of generality, we chose `Race` as the protected feature to visualize the bias in the COMPAS dataset. We validated the existence of racism in the COMPAS dataset by plotting the above empirical probability distributions of different race groups. For inmates who actually recidivated, Caucasians had a nearly 20% more chance of receiving a low COMPAS score than African Americans and  30% less chance of receiving a high COMPAS score. For inmates who didn’t commit crimes within the window of two years, African Americans have a 20% less chance to receive a low COMPAS score than other races. This illustrates the fact that COMPAS scores are biased towards overestimating the recidivism tendency of African Americans and underestimating the recidivism tendency of other races.
 
@@ -57,7 +58,7 @@ Similar to the discrimination spotted in race, we uncovered discrimination in `S
 
 For comparison, below is the empirical probability of being predicted as risky (will recidivate) or not risky (will not recidivate) by the logistic regression model for different racial groups. We can see that the logistic regression model displays similar levels of discimination as COMPAS. 
 
-<img src="./img/lr_rec_race.png" width="300"/><img src="./img/lr_nrec_race.png" width="300"/>
+<img src="./img/lr_rec_race.png" width="50%"/><img src="./img/lr_nrec_race.png" width="50%"/>
 
 ## Metrics for measuring the fairness and discrimination in the model 
 
@@ -160,6 +161,6 @@ Essentially this step can be viewed as calibrating the risk assessment model out
 
 # Appendix
 ## discrimination with respect to other protected features visualized
-<img src="./img/rec_age.png" width="300"/><img src="./img/nrec_age.png" width="325"/>
+<img src="./img/rec_age.png" width="45%"/><img src="./img/nrec_age.png" width="50%"/>
 
-<img src="./img/rec_sex.png" width="300"/><img src="./img/nrec_sex.png" width="325"/>
+<img src="./img/rec_sex.png" width="45%"/><img src="./img/nrec_sex.png" width="50%"/>
