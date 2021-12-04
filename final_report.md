@@ -126,7 +126,6 @@ In the previous sections, we calculated the amount of discrimination for differe
 
 Mathematically, this can be expressed as <img src="https://render.githubusercontent.com/render/math?math=d(x_1,x_2)\leq\epsilon\Rightarrow Pr(\hat{y}|x_1)\approx Pr(\hat{y}|x_2)">, where <img src="https://render.githubusercontent.com/render/math?math=d(x_1,x_2)"> is a distance function, and <img src="https://render.githubusercontent.com/render/math?math=x_1">,<img src="https://render.githubusercontent.com/render/math?math=x_2"> are visible features of two data points. 
 
-# Next steps
 ## Optimize the tradeoff between fairness and accuracy
 
 We perform the optimization for fairness in two stages: 1) pre-process; 2) post-process.
@@ -172,7 +171,7 @@ First, we define the idea of a decision function: a function that maps from raw 
 
 Essentially this step can be viewed as calibrating the risk assessment model output so that it is fair across different groups in protected features without sacrificing too much of accuracy. 
 
-### Experiment
+## Experiment
 
 To evaluate the fairness pipeline’s effectiveness, we compare the model performance on the same test set with and without the pipeline. The model performance consists of their accuracy, measured as AUC, and their fairness, measured by discrimination statistics, difference in false negative rates, and difference in false positive rates. 
 
