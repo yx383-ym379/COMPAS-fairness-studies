@@ -1,4 +1,4 @@
-# Midterm report
+# Final report
 ## Introduction 
 We recognize that a model like the COMPAS algorithm can be a “Weapon of Math Destruction”, as it satisfies the definitions: 1) its prediction outcome is not easily measurable, 2) false predictions of the model can cause serious trouble (reoffending or unnecessarily keeping the defendant in jail), 3) false predictions, especially false positive prediction becomes a negative feedback loop.
 
